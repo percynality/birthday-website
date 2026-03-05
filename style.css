@@ -1,0 +1,192 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #6a0000, #8b0000);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Center everything */
+.container {
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 3.2em;
+  margin-bottom: 15px;
+}
+
+.main-message {
+  font-size: 1.4em;
+  max-width: 700px;
+  margin-bottom: 50px;
+  line-height: 1.6;
+}
+
+/* BIG Fancy Button */
+.fancy-btn {
+  background: transparent;
+  border: 3px solid white;
+  padding: 22px 70px;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 60px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover shine */
+.fancy-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: skewX(-20deg);
+  transition: left 0.5s;
+}
+
+.fancy-btn:hover::before {
+  left: 120%;
+}
+
+.fancy-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.7);
+}
+
+/* Hidden section */
+.hidden {
+  display: none;
+}
+
+#gallerySection {
+  margin-top: 50px;
+  animation: fadeIn 1.5s ease;
+}
+
+.memory-text {
+  font-size: 1.3em;
+  margin-bottom: 35px;
+  max-width: 700px;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 25px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.gallery img:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.8);
+}
+
+/* Floating Hearts */
+.hearts::before,
+.hearts::after {
+  content: "❤️   💕   💕   💕   💕   ❤️";
+  position: fixed;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  font-size: 2.2em;
+  animation: floatHearts 14s linear infinite;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.hearts::after {
+  animation-delay: 7s;
+}
+
+@keyframes floatHearts {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-220vh);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #6a0000, #8b0000);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+
+  border: 10px solid pink;   /* keep border */
+  box-sizing: border-box;
+  min-height: 100vh;         /* ensures border reaches full page */
+}
+
+ .love-text {
+  max-width: 800px;
+  margin: 80px auto 60px auto;
+  padding: 0 20px;
+  text-align: center;
+  
+
+  opacity: 0;                 /* hidden initially */
+  transform: translateY(30px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.love-text p {
+  font-size: 1.8rem;      /* 🔥 FIX: bigger text */
+  line-height: 2;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.love-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+ 
+.hidden {
+  display: none;
+}
