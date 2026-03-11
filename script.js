@@ -1,39 +1,116 @@
-function startSurprise() {
+function startSurprise(){
 
-  // Fade-in Music
-  const music = document.getElementById("bgMusic");
-  music.volume = 0;
-  music.play();
+const music = document.getElementById("bgMusic");
 
-  let volume = 0;
-  const fadeInterval = setInterval(() => {
-    if (volume < 0.6) {
-      volume += 0.02;
-      music.volume = volume;
-    } else {
-      clearInterval(fadeInterval);
-    }
-  }, 200);
+music.volume = 0;
+music.play();
 
-  // Show gallery section
-  document.getElementById("gallerySection").style.display = "block";
+let volume = 0;
 
-  // Hide button
-  document.querySelector(".fancy-btn").style.display = "none";
+const fade = setInterval(() => {
 
-  // Reveal photos one by one
+if(volume < 0.6){
+volume += 0.02;
+music.volume = volume;
+}
+
+else{
+clearInterval(fade);
+}
+
+},200);
+
+
+/* reveal sections */
+
+document.getElementById("messageSection").style.display="flex";
+document.getElementById("gallery").style.display="flex";
+document.getElementById("finalMessage").style.display="flex";
+
+/* scroll down */
+
+window.scrollTo({
+top:window.innerHeight,
+behavior:"smooth"
+});
+
+}
+
+
+/* reveal photos while scrolling */
+
+window.addEventListener("scroll",function(){
+
+const reveals = document.querySelectorAll(".reveal");
+
+reveals.forEach((el)=>{
+
+const windowHeight = window.innerHeight;
+const elementTop = el.getBoundingClientRect().top;
+
+if(elementTop < windowHeight - 100){
+el.classList.add("active");
+}
+
+});
+
+});
+
+window.addEventListener("scroll", () => {
   const photos = document.querySelectorAll(".photo");
 
-  photos.forEach((photo, index) => {
-    setTimeout(() => {
-      photo.classList.add("show");
-    }, index * 1200);
-  });
+  photos.forEach(photo => {
+    const position = photo.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
 
-  // 🔥 Reveal love text AFTER photos finish
-  setTimeout(() => {
-    const loveText = document.getElementById("loveText");
-    loveText.classList.remove("hidden");
-    loveText.classList.add("show");
-  }, 3000);
+    if (position < screenHeight - 100) {
+      photo.classList.add("show");
+    }
+  });
+});
+
+
+let heartInterval = null;
+
+window.addEventListener("scroll", function() {
+
+const finalSection = document.getElementById("finalMessage");
+const position = finalSection.getBoundingClientRect().top;
+const screenHeight = window.innerHeight;
+
+if(position < screenHeight - 100){
+
+/* start hearts */
+
+if(!heartInterval){
+heartInterval = setInterval(createHeart, 400);
+}
+
+}
+
+else{
+
+/* stop hearts */
+
+clearInterval(heartInterval);
+heartInterval = null;
+
+}
+
+});
+
+function createHeart(){
+
+const heart = document.createElement("div");
+heart.classList.add("end-heart");
+heart.innerHTML = "💜";
+
+heart.style.left = Math.random() * 100 + "%";
+
+document.getElementById("endHearts").appendChild(heart);
+
+setTimeout(() => {
+heart.remove();
+},4000);
+
 }
