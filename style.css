@@ -1,192 +1,221 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #6a0000, #8b0000);
-  color: white;
-  text-align: center;
-  overflow-x: hidden;
+body{
+margin:0;
+font-family: 'Georgia', serif;
+background: linear-gradient(180deg,#1a0000,#5c0000);
+color:white;
+text-align:center;
+overflow-x:hidden;
 }
 
-/* Center everything */
-.container {
-  min-height: 100vh;
-  padding: 60px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 2;
+/* sections */
+
+.section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:40px;
 }
 
-h1 {
-  font-size: 3.2em;
-  margin-bottom: 15px;
+/* landing */
+
+h1{
+font-size:3.8rem;
+letter-spacing:2px;
+margin-bottom:10px;
 }
 
-.main-message {
-  font-size: 1.4em;
-  max-width: 700px;
-  margin-bottom: 50px;
-  line-height: 1.6;
+.message{
+max-width:700px;
+font-size:1.5rem;
+line-height:1.8;
+opacity:0.9;
 }
 
-/* BIG Fancy Button */
-.fancy-btn {
-  background: transparent;
-  border: 3px solid white;
-  padding: 22px 70px;
-  font-size: 1.5em;
-  font-weight: 600;
-  color: white;
-  cursor: pointer;
-  border-radius: 60px;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
+/* button */
+
+.start-btn{
+margin-top:40px;
+padding:18px 55px;
+font-size:1.3rem;
+background:transparent;
+border:2px solid white;
+border-radius:40px;
+color:white;
+cursor:pointer;
+transition:0.4s;
 }
 
-/* Hover shine */
-.fancy-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 120%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.25);
-  transform: skewX(-20deg);
-  transition: left 0.5s;
+.start-btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px white;
 }
 
-.fancy-btn:hover::before {
-  left: 120%;
+/* gallery */
+
+ /* gallery */
+
+.gallery{
+display:flex;
+flex-direction:column;
+gap:120px;
+margin-top:60px;
 }
 
-.fancy-btn:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 35px rgba(255, 255, 255, 0.7);
+.memory{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:60px;
 }
 
-/* Hidden section */
-.hidden {
-  display: none;
+.memory img{
+width:320px;
+border-radius:25px;
+transition:0.5s;
 }
 
-#gallerySection {
-  margin-top: 50px;
-  animation: fadeIn 1.5s ease;
+.memory img:hover{
+transform:scale(1.05);
+box-shadow:0 0 30px white;
 }
 
-.memory-text {
-  font-size: 1.3em;
-  margin-bottom: 35px;
-  max-width: 700px;
+.caption{
+font-size:1.6rem;
+max-width:420px;
+line-height:1.6;
+opacity:0.9;
 }
 
-/* Gallery */
-.gallery {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-}
+/* alternate layout */
 
-.gallery img {
-  width: 240px;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 25px;
-  transition: transform 0.4s, box-shadow 0.4s;
-}
-
-.gallery img:hover {
-  transform: scale(1.12);
-  box-shadow: 0 0 35px rgba(255, 255, 255, 0.8);
-}
-
-/* Floating Hearts */
-.hearts::before,
-.hearts::after {
-  content: "❤️   💕   💕   💕   💕   ❤️";
-  position: fixed;
-  width: 100%;
-  top: 100%;
-  left: 0;
-  font-size: 2.2em;
-  animation: floatHearts 14s linear infinite;
-  opacity: 0.6;
-  text-align: center;
-}
-
-.hearts::after {
-  animation-delay: 7s;
-}
-
-@keyframes floatHearts {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-220vh);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
- body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #6a0000, #8b0000);
-  color: white;
-  text-align: center;
-  overflow-x: hidden;
-
-  border: 10px solid pink;   /* keep border */
-  box-sizing: border-box;
-  min-height: 100vh;         /* ensures border reaches full page */
-}
-
- .love-text {
-  max-width: 800px;
-  margin: 80px auto 60px auto;
-  padding: 0 20px;
-  text-align: center;
-  
-
-  opacity: 0;                 /* hidden initially */
-  transform: translateY(30px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-.love-text p {
-  font-size: 1.8rem;      /* 🔥 FIX: bigger text */
-  line-height: 2;
-  color: white;
-  letter-spacing: 0.5px;
-}
-
-.love-text.show {
-  opacity: 1;
-  transform: translateY(0);
+.memory:nth-child(even){
+flex-direction:row-reverse;
 }
 
 
+/* final text */
 
-html, body {
-  margin: 0;
-  padding: 0;
+.final{
+font-size:2rem;
+max-width:700px;
+line-height:2;
 }
- 
-.hidden {
-  display: none;
+
+/* hidden */
+
+.hidden{
+display:none;
+}
+
+/* reveal animation */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+.hearts-left, .hearts-right{
+position: fixed;
+bottom: 0;
+height: 100%;
+width: 50px;
+pointer-events: none;
+}
+
+.hearts-left{
+left: 10px;
+}
+
+.hearts-right{
+right: 10px;
+}
+
+.heart{
+position: absolute;
+bottom: -50px;
+font-size: 2rem;
+opacity: 0.6;
+animation: floatUp 12s linear infinite;
+}
+
+@keyframes floatUp{
+0%{
+transform: translateY(0);
+opacity: 0;
+}
+
+20%{
+opacity: 1;
+}
+
+100%{
+transform: translateY(-200vh);
+opacity: 0;
+}
+}
+
+.photo {
+opacity: 0;
+transform: translateY(40px);
+transition: all 1s ease;
+}
+
+.photo.show {
+opacity: 1;
+transform: translateY(0);
+}
+
+#finalMessage{
+margin-top:250px;
+text-align:center;
+}
+
+.final-title{
+font-size:3rem;
+margin-bottom:40px;
+}
+
+.final{
+font-size:1.5rem;
+line-height:1.8;
+max-width:800px;
+margin:auto;
+}
+
+#endHearts{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+}
+
+.end-heart{
+position:absolute;
+bottom:-50px;
+font-size:32px;
+animation:rise 4s linear forwards;
+opacity:0.9;
+}
+
+@keyframes rise{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
 }
